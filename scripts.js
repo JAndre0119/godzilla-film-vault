@@ -58,3 +58,31 @@ function editCardContent(card, film) {
   const cardDesc = card.querySelector("p");
   cardDesc.textContent = `${film.year} · ${film.era} · ⭐ ${film.rating}`;
 }
+
+function handleSearch() {
+  const query = document.getElementById("search-input").value.toLowerCase();
+  const eraFilter = document.getElementById("era-filter").value;
+
+  filteredFilms = films.filter(film => {
+    const matchesSearch = film.title.toLowerCase().includes(query);
+    const matchesEra = eraFilter === "All" || film.era === eraFilter;
+    return matchesSearch && matchesEra;
+  });
+
+  showCards();
+}
+
+function handleFilter() {
+  const query = document.getElementById("search-input").value.toLowerCase();
+  const eraFilter = document.getElementById("era-filter").value;
+
+  filteredFilms = films.filter(film => {
+    const matchesSearch = film.title.toLowerCase().includes(query);
+    const matchesEra = eraFilter === "All" || film.era === eraFilter;
+    return matchesSearch && matchesEra;
+  });
+
+  showCards();
+}
+
+document.addEventListener("DOMContentLoaded", showCards);

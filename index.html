@@ -1,31 +1,45 @@
 <!doctype html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <title>Godzilla Film Vault</title>
+    <meta name="description" content="A catalog of every Godzilla film ever made" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <h1 class="title">🦖 Godzilla Film Vault</h1>
+      <p class="subtitle">Every Godzilla film, from 1954 to today</p>
     </header>
+
+    <div class="controls">
+      <input type="text" id="search-input" placeholder="Search films..." oninput="handleSearch()" />
+      <select id="era-filter" onchange="handleFilter()">
+        <option value="All">All Eras</option>
+        <option value="Showa">Showa (1954–1975)</option>
+        <option value="Heisei">Heisei (1984–1995)</option>
+        <option value="Millennium">Millennium (1999–2004)</option>
+        <option value="Reiwa">Reiwa (2016–present)</option>
+        <option value="Monsterverse">Monsterverse</option>
+        <option value="Hollywood">Hollywood</option>
+      </select>
+    </div>
+
     <div id="card-container"></div>
+
+    <!-- Hidden template card -->
     <div class="card" style="display: none">
       <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+        <h2>Film Title</h2>
+        <img src="" alt="Film Poster" />
+        <p></p>
       </div>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
-    </div>
+
+    <footer class="footer">
+      <p>Data sourced from IMDb & Wikipedia</p>
+    </footer>
+
+    <script type="text/javascript" src="scripts.js"></script>
   </body>
 </html>

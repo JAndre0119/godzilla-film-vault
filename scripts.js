@@ -1,97 +1,60 @@
-/**
- * Data Catalog Project Starter Code - SEA Stage 2
- *
- * This file is where you should be doing most of your work. You should
- * also make changes to the HTML and CSS files, but we want you to prioritize
- * demonstrating your understanding of data structures, and you'll do that
- * with the JavaScript code you write in this file.
- *
- * The comments in this file are only to help you learn how the starter code
- * works. The instructions for the project are in the README. That said, here
- * are the three things you should do first to learn about the starter code:
- * - 1 - Change something small in index.html or style.css, then reload your
- *    browser and make sure you can see that change.
- * - 2 - On your browser, right click anywhere on the page and select
- *    "Inspect" to open the browser developer tools. Then, go to the "console"
- *    tab in the new window that opened up. This console is where you will see
- *    JavaScript errors and logs, which is extremely helpful for debugging.
- *    (These instructions assume you're using Chrome, opening developer tools
- *    may be different on other browsers. We suggest using Chrome.)
- * - 3 - Add another string to the titles array a few lines down. Reload your
- *    browser and observe what happens. You should see a fourth "card" appear
- *    with the string you added to the array, but a broken image.
- *
- */
-
-const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
-// This is an array of strings (TV show titles)
-let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-  "East Los High",
+const films = [
+  { title: "Godzilla", year: 1954, era: "Showa", rating: 7.6, poster: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Gojira_1954_film_poster.jpg/220px-Gojira_1954_film_poster.jpg" },
+  { title: "Godzilla Raids Again", year: 1955, era: "Showa", rating: 6.2, poster: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Godzilla_raids_again_poster.jpg/220px-Godzilla_raids_again_poster.jpg" },
+  { title: "King Kong vs. Godzilla", year: 1962, era: "Showa", rating: 6.3, poster: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/King_Kong_vs._Godzilla_poster.jpg/220px-King_Kong_vs._Godzilla_poster.jpg" },
+  { title: "Mothra vs. Godzilla", year: 1964, era: "Showa", rating: 7.0, poster: "https://upload.wikimedia.org/wikipedia/en/8/8c/Mothra_vs_Godzilla_poster.jpg" },
+  { title: "Ghidorah, the Three-Headed Monster", year: 1964, era: "Showa", rating: 6.8, poster: "https://upload.wikimedia.org/wikipedia/en/5/5b/Ghidorah_the_Three-Headed_Monster_poster.jpg" },
+  { title: "Invasion of Astro-Monster", year: 1965, era: "Showa", rating: 6.9, poster: "https://upload.wikimedia.org/wikipedia/en/8/8e/Invasion_of_Astro-Monster_poster.jpg" },
+  { title: "Ebirah, Horror of the Deep", year: 1966, era: "Showa", rating: 5.9, poster: "https://upload.wikimedia.org/wikipedia/en/9/9e/Godzilla_vs_the_sea_monster_poster.jpg" },
+  { title: "Destroy All Monsters", year: 1968, era: "Showa", rating: 6.9, poster: "https://upload.wikimedia.org/wikipedia/en/b/b9/Destroy_all_monsters_poster.jpg" },
+  { title: "Godzilla vs. Hedorah", year: 1971, era: "Showa", rating: 6.3, poster: "https://upload.wikimedia.org/wikipedia/en/b/b3/Godzilla_vs_Hedorah_poster.jpg" },
+  { title: "Terror of Mechagodzilla", year: 1975, era: "Showa", rating: 6.5, poster: "https://upload.wikimedia.org/wikipedia/en/b/b5/Terror_of_mechagodzilla_poster.jpg" },
+  { title: "The Return of Godzilla", year: 1984, era: "Heisei", rating: 6.3, poster: "https://upload.wikimedia.org/wikipedia/en/4/4e/The_Return_of_Godzilla_poster.jpg" },
+  { title: "Godzilla vs. Biollante", year: 1989, era: "Heisei", rating: 6.9, poster: "https://upload.wikimedia.org/wikipedia/en/2/28/Godzilla_vs._Biollante_poster.jpg" },
+  { title: "Godzilla vs. King Ghidorah", year: 1991, era: "Heisei", rating: 7.1, poster: "https://upload.wikimedia.org/wikipedia/en/5/5e/Godzilla_vs_King_Ghidorah_poster.jpg" },
+  { title: "Godzilla vs. Mothra", year: 1992, era: "Heisei", rating: 6.7, poster: "https://upload.wikimedia.org/wikipedia/en/b/b7/Godzilla_and_Mothra_The_Battle_for_Earth.jpg" },
+  { title: "Godzilla vs. Mechagodzilla II", year: 1993, era: "Heisei", rating: 6.8, poster: "https://upload.wikimedia.org/wikipedia/en/2/2d/Godzilla_vs_Mechagodzilla_2_poster.jpg" },
+  { title: "Godzilla vs. Destoroyah", year: 1995, era: "Heisei", rating: 7.4, poster: "https://upload.wikimedia.org/wikipedia/en/9/92/Godzilla_vs_Destoroyah_poster.jpg" },
+  { title: "Godzilla 2000: Millennium", year: 1999, era: "Millennium", rating: 6.3, poster: "https://upload.wikimedia.org/wikipedia/en/7/7f/Godzilla_2000_poster.jpg" },
+  { title: "Godzilla vs. Megaguirus", year: 2000, era: "Millennium", rating: 6.0, poster: "https://upload.wikimedia.org/wikipedia/en/e/e0/Godzilla_vs_Megaguirus_poster.jpg" },
+  { title: "Godzilla, Mothra and King Ghidorah: Giant Monsters All-Out Attack", year: 2001, era: "Millennium", rating: 7.0, poster: "https://upload.wikimedia.org/wikipedia/en/3/32/GMKposter.jpg" },
+  { title: "Godzilla Against Mechagodzilla", year: 2002, era: "Millennium", rating: 6.6, poster: "https://upload.wikimedia.org/wikipedia/en/1/1c/Godzilla_Against_MechaGodzilla_poster.jpg" },
+  { title: "Godzilla: Final Wars", year: 2004, era: "Millennium", rating: 6.5, poster: "https://upload.wikimedia.org/wikipedia/en/f/f4/Godzilla_Final_Wars_poster.jpg" },
+  { title: "Shin Godzilla", year: 2016, era: "Reiwa", rating: 7.4, poster: "https://upload.wikimedia.org/wikipedia/en/0/0e/Shin_Godzilla_poster.jpg" },
+  { title: "Godzilla: Planet of the Monsters", year: 2017, era: "Reiwa", rating: 5.7, poster: "https://upload.wikimedia.org/wikipedia/en/5/5e/Godzilla_Planet_of_the_Monsters_poster.jpg" },
+  { title: "Godzilla (1998)", year: 1998, era: "Hollywood", rating: 5.4, poster: "https://upload.wikimedia.org/wikipedia/en/6/6b/Godzilla_1998_poster.jpg" },
+  { title: "Godzilla (2014)", year: 2014, era: "Monsterverse", rating: 6.4, poster: "https://upload.wikimedia.org/wikipedia/en/5/52/Godzilla_2014_film_poster.jpg" },
+  { title: "Godzilla: King of the Monsters", year: 2019, era: "Monsterverse", rating: 6.0, poster: "https://upload.wikimedia.org/wikipedia/en/a/a4/Godzilla_King_of_the_Monsters_%282019%29_poster.jpg" },
+  { title: "Godzilla vs. Kong", year: 2021, era: "Monsterverse", rating: 6.3, poster: "https://upload.wikimedia.org/wikipedia/en/e/e5/Godzilla_vs._Kong_poster.jpg" },
+  { title: "Godzilla Minus One", year: 2023, era: "Reiwa", rating: 8.1, poster: "https://upload.wikimedia.org/wikipedia/en/4/4f/Godzilla_Minus_One_poster.jpg" },
+  { title: "Godzilla x Kong: The New Empire", year: 2024, era: "Monsterverse", rating: 5.8, poster: "https://upload.wikimedia.org/wikipedia/en/3/37/Godzilla_x_Kong_-_The_New_Empire_poster.jpg" },
 ];
-// Your final submission should have much more data than this, and
-// you should use more than just an array of strings to store it all.
 
-// This function adds cards the page to display the data in the array
+let filteredFilms = [...films]; // This holds the current filtered/searched results
+
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
-
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
-    }
-
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
+  for (let i = 0; i < filteredFilms.length; i++) {
+    let film = filteredFilms[i];
+    const nextCard = templateCard.cloneNode(true);
+    editCardContent(nextCard, film);
+    cardContainer.appendChild(nextCard);
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, film) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+  cardHeader.textContent = film.title;
 
   const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  cardImage.src = film.poster;
+  cardImage.alt = film.title + " Poster";
 
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
-}
-
-// This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
-
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
-  );
-}
-
-function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
+  const cardDesc = card.querySelector("p");
+  cardDesc.textContent = `${film.year} · ${film.era} · ⭐ ${film.rating}`;
 }

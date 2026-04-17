@@ -1,70 +1,134 @@
-html,
-body {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap');
+
+html, body {
   margin: 0;
   padding: 0;
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
 }
 
+/* ── Header ── */
 .main-header {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-bottom: 10px;
+  background: linear-gradient(180deg, #000000 0%, #1a0000 100%);
+  padding: 30px 20px 20px;
+  text-align: center;
+  border-bottom: 3px solid #00ff88;
 }
 
 .title {
-  text-align: center;
   margin: 0;
-  font-size: 8em;
-  font-family: "Helvetica";
-  font-weight: normal;
-  color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6em;
+  color: #ffffff;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff8855;
 }
 
-#card-container {
+.subtitle {
+  margin: 8px 0 0;
+  font-size: 1em;
+  color: #aaaaaa;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── Controls ── */
+.controls {
   display: flex;
   justify-content: center;
-  margin: 20px;
-}
-
-.card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 5px;
-}
-
-.card-content {
+  align-items: center;
+  gap: 16px;
   padding: 20px;
-  font-family: "Verdana";
-  color: #777;
+  background-color: #111111;
+  border-bottom: 1px solid #222;
 }
 
-.card-content h2 {
-  margin-top: 0;
-  font-size: 20px;
+.controls input,
+.controls select {
+  background-color: #1a1a1a;
+  border: 1px solid #00ff88;
+  color: #f0f0f0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+
+.controls input {
+  width: 260px;
+}
+
+.controls input::placeholder {
+  color: #666;
+}
+
+.controls select option {
+  background-color: #1a1a1a;
+}
+
+/* ── Card Container ── */
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Cards ── */
+.card {
+  width: 200px;
+  background-color: #141414;
+  border: 1px solid #222;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+  border-color: #00ff88;
 }
 
 .card img {
   width: 100%;
-  height: auto;
+  height: 280px;
+  object-fit: cover;
+  display: block;
 }
 
+.card-content {
+  padding: 12px;
+}
+
+.card-content h2 {
+  margin: 0 0 8px;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 0.8em;
+  color: #00ff88;
+  letter-spacing: 0.5px;
+}
+
+/* ── Footer ── */
 .footer {
-  display: flex;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 10px;
-}
-
-button {
   text-align: center;
-  background-color: #666;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 40px;
-  border-radius: 10px;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  margin: 5px;
+  background-color: #0a0a0a;
+  border-top: 1px solid #222;
+  padding: 20px;
+  color: #555;
+  font-size: 0.85em;
 }

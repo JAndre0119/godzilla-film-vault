@@ -89,3 +89,19 @@ function handleFilter() {
 }
 
 document.addEventListener("DOMContentLoaded", showCards);
+
+function handleSort() {
+  const sortValue = document.getElementById("sort-select").value;
+
+  if (sortValue === "year-asc") {
+    filteredFilms.sort((a, b) => a.year - b.year);
+  } else if (sortValue === "year-desc") {
+    filteredFilms.sort((a, b) => b.year - a.year);
+  } else if (sortValue === "rating-desc") {
+    filteredFilms.sort((a, b) => b.rating - a.rating);
+  } else if (sortValue === "rating-asc") {
+    filteredFilms.sort((a, b) => a.rating - b.rating);
+  }
+
+  showCards();
+}

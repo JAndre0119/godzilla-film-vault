@@ -23,6 +23,13 @@
         <option value="Monsterverse">Monsterverse</option>
         <option value="Hollywood">Hollywood</option>
       </select>
+      <select id="sort-select" onchange="handleSort()">
+        <option value="default">Sort By</option>
+        <option value="year-asc">Year (Oldest First)</option>
+        <option value="year-desc">Year (Newest First)</option>
+        <option value="rating-desc">Rating (Highest First)</option>
+         <option value="rating-asc">Rating (Lowest First)</option>
+      </select>
     </div>
 
     <div id="card-container"></div>
